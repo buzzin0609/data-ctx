@@ -3,9 +3,9 @@
  */
 
 import ctx from './data-ctx';
-
+import domReady from './dom-ready'
 //parse and handle bindings on DOM ready
-$(parse);
+domReady(parse);
 
 /**
  * parsing function to handle all current visible elements with data-hn-bind as a data attribute
