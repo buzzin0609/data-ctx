@@ -20,5 +20,5 @@ document.addEventListener('click', function(e) {
  */
 export default function handleCtxClick(e) {
 	e.preventDefault();
-	handleCtxBind(this, 'data-ctx-click');
+	handleCtxBind(e.target.closest('[data-ctx-click]'), 'data-ctx-click');
 }
