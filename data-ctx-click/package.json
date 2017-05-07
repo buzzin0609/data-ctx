@@ -1,0 +1,11 @@
+{
+  "name": "data-ctx-click",
+  "version": "1.0.1",
+  "description": "",
+  "main": "data-ctx-click.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Will Busby <will0609@hotmail.com>",
+  "license": "MIT"
+}

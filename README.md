@@ -13,8 +13,8 @@ Simple usage
 import ctx from 'data-ctx'
 //data-ctx-bind and data-ctx-click only need to be loaded once for your app to enable auto parsing of the DOM, 
 //so import them once in your main app file.
-import './data-ctx-bind'
-import './data-ctx-click'
+import 'data-ctx-bind'
+import 'data-ctx-click'
 
 ctx.setContext('app', {
     title: 'Shiny Title'

@@ -2,7 +2,7 @@
  * Convenience wrapper for click handlers using data-ctx-click data attributes
  */
 
-import handleCtxBind from './bind';
+import handleCtxBind from 'data-ctx-bind';
 
 /**
  *   Add one global click handler to the body to handle elements with data-ctx-click as a data attribute

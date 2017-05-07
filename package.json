@@ -1,0 +1,30 @@
+{
+  "name": "data-ctx",
+  "version": "1.0.3",
+  "description": "",
+  "main": "data-ctx.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "data-ctx-bind" : "*",
+    "data-ctx-click" : "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buzzin0609/data-ctx.git"
+  },
+  "keywords": [
+    "data-binding",
+    "dom-events",
+    "dom-updating",
+    "data-attributes",
+    "context-management"
+  ],
+  "author": "Will Busby <will0609@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/buzzin0609/data-ctx/issues"
+  },
+  "homepage": "https://github.com/buzzin0609/data-ctx#readme"
+}
