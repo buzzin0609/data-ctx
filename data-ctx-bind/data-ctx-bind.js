@@ -14,7 +14,7 @@ export function parse() {
 	const els = document.querySelectorAll('[data-ctx-bind]');
 
 	for (let i = 0, l = els.length; i < l; i++) {
-		if (/ctx-bound/.test(els[i].className)) return;
+		if (/ctx-bound/.test(els[i].className)) continue;
 		handleCtxBind(els[i]);
 	}
 }
