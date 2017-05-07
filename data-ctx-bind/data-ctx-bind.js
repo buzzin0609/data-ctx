@@ -2,8 +2,8 @@
  * Bind context functions to DOM elements using the data-ctx-bind data-attribute
  */
 
-import ctx from './data-ctx';
-import domReady from './dom-ready'
+import ctx from '../data-ctx';
+import domReady from '../dom-ready'
 //parse and handle bindings on DOM ready
 domReady(parse);
 
