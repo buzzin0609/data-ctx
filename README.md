@@ -32,11 +32,11 @@ Which outputs
 <h1 class="ctx-bound" data-ctx-bind="app.title">Shiny Title</h1>
 ```
 
-#API
-##data-ctx.js
+# API
+## data-ctx.js
 - getContext : retrieve a context
 - setContext : set a NEW context
 - extendContext : use this for extending existing contexts and not setContext
 
-##data-bind-ctx
+## data-bind-ctx
 - parse : Is use explicitely on DOM ready, but you can use this to dynamically parse elements that are included to the DOM later,  like after an AJAX request
