@@ -11,10 +11,7 @@ Simple usage
 ```javascript
 //app.js
 import ctx from 'data-ctx'
-//data-ctx-bind and data-ctx-click only need to be loaded once for your app to enable auto parsing of the DOM, 
-//so import them once in your main app file.
-import 'data-ctx-bind'
-import 'data-ctx-click'
+
 
 ctx.setContext('app', {
     title: 'Shiny Title'
@@ -32,7 +29,35 @@ Which outputs
 <h1 class="ctx-bound" data-ctx-bind="app.title">Shiny Title</h1>
 ```
 
+## Handling click events
+
+Easy, just add the data-ctx-click attribute with you context string to fire that function on click
+
+```html
+<button data-ctx-click="app.alert">Click me</button>
+```
+And in your js
+
+```javascript
+import ctx from 'data-ctx';
+
+ctx.setContext('app', {
+    //click events pass in the clicked elements, not an event object. The event is already preventDefault(ed)
+    alert: function(el) {
+        alert('clicked the button, yo');
+    }
+})
+
+```
+
+
 # API
+
+## Attributes
+Default attributes that work out the box
+- data-ctx-bind 
+- data-ctx-click
+
 ## data-ctx.js
 - getContext : retrieve a context
 - setContext : set a NEW context
