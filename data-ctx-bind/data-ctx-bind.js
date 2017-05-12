@@ -15,7 +15,7 @@ export function parse() {
 
 	for (let i = 0, l = els.length; i < l; i++) {
 		if (/ctx-bound/.test(els[i].className)) continue;
-		handleCtxBind(els[i]);
+		handleCtxBind(els[i], 'data-ctx-bind');
 	}
 }
 
@@ -25,13 +25,12 @@ export function parse() {
  * @param {any} el - the element to which the data attribute is attached
  * @param {any} dataName - the data attribute name, data-ctx-bind by default;
  */
-export default function handleCtxBind(el, dataName) {
-	dataName = dataName || 'data-ctx-bind';
+export default function handleCtxBind(el, dataName, e) {
 
 	const result = ctx.eval(el.getAttribute(dataName));
 	if (result) {
 		if (typeof result === "function") {
-			result(el);
+			result(el, e);
 		} else {
 			el.innerHTML = result;
 		}
