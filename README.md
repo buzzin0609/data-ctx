@@ -46,9 +46,11 @@ ctx.setContext('app', {
     alert: function(el) {
         alert('clicked the button, yo');
     }
-})
+});
 
 ```
+
+Clicking the button will now show the alert window.
 
 
 # API

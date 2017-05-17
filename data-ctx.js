@@ -4,8 +4,12 @@
  */
 
 import ctx from './data-ctx-main/data-ctx';
-import './data-ctx-bind/data-ctx-bind';
+import {parse} from './data-ctx-bind/data-ctx-bind';
 import './data-ctx-click/data-ctx-click';
 
 
 export default ctx;
+
+export function ctxParse(el) {
+    parse(el);
+}

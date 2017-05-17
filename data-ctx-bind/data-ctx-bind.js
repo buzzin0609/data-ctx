@@ -10,8 +10,8 @@ domReady(parse);
 /**
  * parsing function to handle all current visible elements with data-hn-bind as a data attribute
  */
-export function parse() {
-	const els = document.querySelectorAll('[data-ctx-bind]');
+export function parse(el = document) {
+	const els = el.querySelectorAll('[data-ctx-bind]');
 
 	for (let i = 0, l = els.length; i < l; i++) {
 		if (/ctx-bound/.test(els[i].className)) continue;
