@@ -49,7 +49,7 @@ export function bind(el, expr, dataName, e) {
 			el.innerHTML = result;
 		}
 
-		if (dataName === 'data-ctx-bind' && el.className.indexOf('ctx-bound') !== -1) {
+		if (dataName === 'data-ctx-bind' && el.className.indexOf('ctx-bound') === -1) {
 			//Sometimes you might want to keep an element hidden, or you want to wait until it's value has been assigned before performing some style modification. Add a class to the element here to use in CSS
 			el.className += ' ctx-bound';
 		}
