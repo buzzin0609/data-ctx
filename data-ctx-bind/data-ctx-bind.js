@@ -10,11 +10,11 @@ domReady(parse);
 /**
  * parsing function to handle all current visible elements with data-hn-bind as a data attribute
  */
-export function parse(el = document) {
-	const els = el.querySelectorAll('[data-ctx-bind]');
+export function parse() {
+	const els = document.querySelectorAll('[data-ctx-bind]');
 
 	for (let i = 0, l = els.length; i < l; i++) {
-		if (/ctx-bound/.test(els[i].className)) continue;
+		if (els[i].className.indexOf('ctx-bound') !== -1) continue;
 		handleCtxBind(els[i], 'data-ctx-bind');
 	}
 }
@@ -26,8 +26,22 @@ export function parse(el = document) {
  * @param {any} dataName - the data attribute name, data-ctx-bind by default;
  */
 export default function handleCtxBind(el, dataName, e) {
+	const expressions = getExpressions(el.getAttribute(dataName));
+	expressions.forEach(expr => bind(el, expr, dataName, e))
 
-	const result = ctx.eval(el.getAttribute(dataName));
+}
+
+/**
+ * Adds support for multiple expressions to be evaluated.
+ * @param {string} fullStr - the full expression string
+ * @returns {Array} of expressions
+ */
+export function getExpressions(fullStr) {
+	return fullStr.indexOf(',') !== -1 && fullStr.split(/\s*(.[^,]*),?/) || [fullStr];
+}
+
+export function bind(el, expr, dataName, e) {
+	const result = ctx.eval(expr);
 	if (result) {
 		if (typeof result === "function") {
 			result(el, e);
@@ -35,7 +49,7 @@ export default function handleCtxBind(el, dataName, e) {
 			el.innerHTML = result;
 		}
 
-		if (dataName === 'data-ctx-bind') {
+		if (dataName === 'data-ctx-bind' && el.className.indexOf('ctx-bound') !== -1) {
 			//Sometimes you might want to keep an element hidden, or you want to wait until it's value has been assigned before performing some style modification. Add a class to the element here to use in CSS
 			el.className += ' ctx-bound';
 		}
