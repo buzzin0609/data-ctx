@@ -37,7 +37,7 @@ export default function handleCtxBind(el, dataName, e) {
  * @returns {Array} of expressions
  */
 export function getExpressions(fullStr) {
-	return fullStr.indexOf(',') !== -1 && fullStr.split(/\s*(.[^,]*),?/) || [fullStr];
+	return fullStr.indexOf(',') !== -1 && fullStr.split(/\s*(.[^,]*),?/).filter(Boolean) || [fullStr];
 }
 
 export function bind(el, expr, dataName, e) {
