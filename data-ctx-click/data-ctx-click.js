@@ -10,18 +10,21 @@ import handleCtxBind from '../data-ctx-bind/data-ctx-bind';
  */
 
 if ('ontouchstart' in window) {
-	var newTouch = false;
+	let startPosX = 0;
+	let startPosY = 0;
 
 	document.addEventListener('touchstart', function (e) {
-		newTouch = true;
-	});
-
-	document.addEventListener('touchmove', function (e) {
-		newTouch = false;
+		startPosX = e.touches[0].clientX;
+		startPosY = e.touches[0].clientY;
 	});
 
 	document.addEventListener('touchend', function (e) {
-		if (newTouch) {
+		const biggestDiff = Math.max(
+			Math.abs(startPosX - e.touches[0].clientX),
+			Math.abs(startPosY - e.touches[0].clientY)
+		);
+
+		if (biggestDiff < 20) {
 			decide(e);
 		}
 	});
