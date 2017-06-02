@@ -19,14 +19,14 @@ if ('ontouchstart' in window) {
 	});
 
 	document.addEventListener('touchend', function (e) {
-		const touch = e.touches.length && e.touches[0] || e.changedTouches[0];
+		const touch = e.changedTouches[0];
 
 		const biggestDiff = Math.max(
 			Math.abs(startPosX - touch.clientX),
 			Math.abs(startPosY - touch.clientY)
 		);
 
-		if (biggestDiff < 20) {
+		if (biggestDiff < 20 && e.target === touch.target) {
 			decide(e);
 		}
 	});
@@ -35,7 +35,9 @@ if ('ontouchstart' in window) {
 }
 
 function decide(e) {
-	console.log('tap');
+	if (e.target.closest('[data-ctx-click]')) {
+		handleCtxClick(e);
+	}
 }
 
 /**
