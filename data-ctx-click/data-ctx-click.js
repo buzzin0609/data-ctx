@@ -9,7 +9,7 @@ import handleCtxBind from '../data-ctx-bind/data-ctx-bind';
  *   Use .closest polyfill if needed
  */
 
-if ('ontouchstart' in window) {
+if ('ontouchstart' in window && window.innerWidth < 1025) {
 	let startPosX = 0;
 	let startPosY = 0;
 
