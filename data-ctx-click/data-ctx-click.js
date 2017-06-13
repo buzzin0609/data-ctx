@@ -4,12 +4,14 @@
 
 import handleCtxBind from '../data-ctx-bind/data-ctx-bind';
 
+const isMobile = window.navigator && window.navigator.userAgent && /mobile|ip(od|ad|hone)|android/i.test(window.navigator.userAgent);
+
 /**
  *   Add one global click handler to the body to handle elements with data-ctx-click as a data attribute
  *   Use .closest polyfill if needed
  */
 
-if ('ontouchstart' in window && window.innerWidth < 1025) {
+if ('ontouchstart' in window && (!window.navigator || isMobile)) {
 	let startPosX = 0;
 	let startPosY = 0;
 
